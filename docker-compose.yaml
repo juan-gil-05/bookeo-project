@@ -1,15 +1,23 @@
 services:
   web:
-    image: php:apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php_app
     volumes:
-      - ./:/var/www/html/
+      - ./Public/:/var/www/html/
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_HOST: ${MYSQL_HOST}
     ports:
       - 80:80
     depends_on:
       - db
   db:
-    image: mysql:latest
+    image: mysql:9.3.0
     container_name: mysql_db
     restart: always
     volumes:
