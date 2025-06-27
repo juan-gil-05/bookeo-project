@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: php_app
     volumes:
-      - ./Public/:/var/www/html/
+      - ./:/var/www/html/
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
