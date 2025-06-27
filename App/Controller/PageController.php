@@ -30,10 +30,13 @@ class PageController extends Controller
         }
     }
 
+
+    /*
+    Exemple d'appel depuis l'url
+        ?controller=page&action=home
+    */
     private function home(): void
     {
-
         $this->render("Pages/home");
-        // echo('hello depuis le home');
     }
 }
